@@ -1,2 +1,9 @@
 #!/bin/bash
-echo $(($(echo $WATER | tr 'water' '01234') + $(echo $STIR | tr 'stir.' '01234'))) | tr '01234567' 'bestchol'
+echo $WATER | tr 'w' '0' | tr 'a' '1' | tr 't' '2' | tr 'e' '3' | tr 'r' '4' | {
+  read water_num
+  echo $STIR | tr 's' '0' | tr 't' '1' | tr 'i' '2' | tr 'r' '3' | tr '.' '4' | {
+    read stir_num
+    sum=$((water_num + stir_num))
+    echo $sum | tr '0' 'b' | tr '1' 'e' | tr '2' 's' | tr '3' 't' | tr '4' 'c' | tr '5' 'h' | tr '6' 'o' | tr '7' 'l'
+  }
+}
